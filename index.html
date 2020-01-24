@@ -2,9 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Interactief</title>
+    <title>Chose your monkey</title>
+    <style>
+
+        body {
+            font-family: Serif;
+            text-align: center;
+        }
+
+        div.aappicture {
+            height: 450px;
+            width: 300px;
+            float: left;
+            background-color: red;
+            border:solid 1px black;
+            box-sizing: border-box;
+        }
+
+        #pics {
+            width: 900px;
+            height: 1350px;
+            border: solid 1px black;
+            font-size: 0px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
+<h1>MonkeyChooser</h1>
+<h3>Chose your favorite monkey!</h3>
+<div id="pics">
+</div>
+<script>
+    pics = document.getElementById("pics");
+    createPicsHolders();
+    CreateAapImages();
+
+    function createPicsHolders() {
+    for (var i = 0; i < 9; i++)
+        {
+            pictureHolder = document.createElement("div");
+            pictureHolder.className = "aappicture";
+            pictureHolder.id = "picture-holder-" + i;
+            pics.appendChild(pictureHolder)
+        }
+    }
+    function CreateAapImages() {
+        pictureHolders = document.getElementsByClassName("aappicture");
+        for (var i = 0; i < pictureHolders.length; i++){
+            aapPlaatje = document.createElement("img");
+            aapPlaatje.src = "img/Monkey" + (i+1) + ".jpg";
+            pictureHolders[i].appendChild(aapPlaatje);
+        }
+
+    }
+</script>
 
 </body>
 </html>
